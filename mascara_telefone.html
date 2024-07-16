@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascara Telefone</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    
+</head>
+<body>
+   
+    <label for="celular_cliente_editar_remota">Celular:</label>
+    <input type='text' id='celular_cliente_editar_remota' name='celular_cliente'>
+    <script>
+
+        $(document).on('keyup', '#celular_cliente_editar_remota', function () {
+                // Removendo todos os caracteres não numéricos
+                var value = $(this).val().replace(/\D/g, '');
+        
+                // Vericando se é celular ou telefone fixo
+                if (value.length > 10) {
+                    $(this).mask('(00) 00000-0000');
+                } else {
+                    $(this).mask('(00) 0000-00009');
+                }
+            });
+        
+        </script>
+</body>
+</html>
